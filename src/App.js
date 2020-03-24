@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import {HashRouter,Switch,Route} from "react-router-dom"
+import Nav from "./pages/Nav"
+import Login from "./pages/Login"
+import Reg from "./pages/Reg"
+import Citylist from "./pages/Citylist"
+import Mappage from "./pages/Mappage"
+import Search from "./pages/Search"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import Ettor404 from "./pages/Ettor404"
+import "./assets/styles/reset.css"
+
+export default class App extends Component {
+    render() {
+        return (
+            <div style={{height:"100%"}}>
+                <HashRouter>
+                    <Switch>
+                        <Route path="/" exact component={Nav}></Route>
+                        <Route path="/login" component={Login}></Route>
+                        <Route path="/reg" component={Reg}></Route>
+                        <Route path="/citylist" component={Citylist}></Route>
+                        <Route path="/mappage" component={Mappage}></Route>
+                        <Route path="/search" component={Search}></Route>
+                        <Route component={Ettor404}></Route>
+                    </Switch>
+                </HashRouter>
+            </div>
+        )
+    }
 }
-
-export default App;
